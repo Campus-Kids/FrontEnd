@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Producto from './Componentes/Productos/Productos.jsx'
 import { Route, Routes } from "react-router"
 import 'tailwindcss/tailwind.css';
+import Footer from './Componentes/Footer/Footer.jsx'
 
 function App() {  
 
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/Productos" element={<Producto/>} />
       </Routes>
+      <Footer/>
     </>
   )
 }
