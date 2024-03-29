@@ -1,0 +1,36 @@
+ .nav {    
+    display: flex; /*Mostrar los elementos de navegación en línea*/
+    gap: 20px;
+
+  }  
+
+  .divGeneralHeader{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: sticky;
+    
+    
+  }
+
+  .divMenu{    
+    display: flex;
+    justify-content: left;
+    margin-right: 250px;   
+    color: #24479b;
+    text-decoration: none; 
+    
+  }  
+
+  a {    
+    font-weight: bold;        
+  }
+
+  .link{
+    text-decoration: none;         
+  } 
+  
+
+  
