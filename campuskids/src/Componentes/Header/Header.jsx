@@ -18,14 +18,14 @@ const Header = () => {
           <Link className={Style.link} to="/Productos">
             Productos
           </Link>
-          <Link className={Style.link} to="/">
+          <Link className={Style.link} to="/ListaProductos">
             Ver productos
           </Link>
-          <Link className={Style.link} to="/">
+          <Link className={Style.link} to="/Contacto">
             Contacto
           </Link>
         </nav>
-      </div>
+      </div>      
     </div>
   );
 };

@@ -2,15 +2,14 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="bg-yellow-200 text-center text-white dark:bg-neutral-600">
+    <div>        
+      <footer className="bg-yellow-200 text-center text-white dark:bg-neutral-600 mt-4">
         <div className="container pt-9">
           <div className="mb-9 flex justify-center">
             <a className="mr-9 text-neutral-800 dark:text-neutral-200">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4"
-                // fill="currentColor"
+                className="h-4 w-4"                
                 fill="#3b5998"
                 viewBox="0 0 24 24"
               >

@@ -1,24 +1,25 @@
-import React from "react";
-
+import React from 'react'
+import Footer from '../Footer/Footer'
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
-import Footer from "../Footer/Footer";
 
-const Productos = () => {
+
+
+const Contacto = () => {
   return (
     <div>
       <div className="max-w-lg mx-auto border border-green-500 p-6 rounded-lg bg-gray-100">
         <form>
-          <div className="space-y-12">
+          <div className="space-y-2">
             {/* AQUÍ EMPIEZA EL FORMULARIO */}
 
             <h2 className="text-lg font-semibold leading-7 text-gray-900 text">
-              Registrar Producto
+              Contactanos
             </h2>
             <label
               htmlFor="first-name"
               className="block text-sm font-medium leading-6 text-gray-900 text-left font-semibold"
             >
-              Nombre del producto
+              Nombre 
             </label>
             <div className="mt-2">
               <input
@@ -30,26 +31,53 @@ const Productos = () => {
               />
             </div>
 
-            {/* CATEGORÍAS */}
-
             <label
-              htmlFor="country"
+              htmlFor="first-name"
               className="block text-sm font-medium leading-6 text-gray-900 text-left font-semibold"
             >
-              Seleccione la categoría del producto
+              Apellidos 
             </label>
             <div className="mt-2">
-              <select
-                id="country"
-                name="country"
-                autoComplete="country-name"
-                className="block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-              >
-                <option>United States</option>
-                <option>Canada</option>
-                <option>Mexico</option>
-              </select>
+              <input
+                type="text"
+                name="first-name"
+                id="first-name"
+                autoComplete="given-name"
+                className="block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
             </div>
+
+            <label
+              htmlFor="first-name"
+              className="block text-sm font-medium leading-6 text-gray-900 text-left font-semibold"
+            >
+              Email
+            </label>
+            <div className="mt-2">
+              <input
+                type="text"
+                name="first-name"
+                id="first-name"
+                autoComplete="given-name"
+                className="block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+
+            <label
+              htmlFor="first-name"
+              className="block text-sm font-medium leading-6 text-gray-900 text-left font-semibold"
+            >
+              Asunto 
+            </label>
+            <div className="mt-2">
+              <input
+                type="text"
+                name="first-name"
+                id="first-name"
+                autoComplete="given-name"
+                className="block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>            
 
             {/* DESCRIPCIÓN */}
 
@@ -69,39 +97,8 @@ const Productos = () => {
               />
             </div>
 
-            {/* IMAGENES */}
-            <label
-              htmlFor="cover-photo"
-              className="block text-sm font-medium leading-6 text-gray-900 font-semibold"
-            >
-              Imagenes del producto
-            </label>
-            <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-              <div className="text-center">
-                <PhotoIcon
-                  className="mx-auto h-12 w-12 text-gray-300"
-                  aria-hidden="true"
-                />
-                <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                  <label
-                    htmlFor="file-upload"
-                    className="relative cursor-pointer rounded-md bg-white font-semibold text-[#385bbb] focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                  >
-                    <span>Upload a file</span>
-                    <input
-                      id="file-upload"
-                      name="file-upload"
-                      type="file"
-                      className="sr-only"
-                    />
-                  </label>
-                  <p className="pl-1">or drag and drop</p>
-                </div>
-                <p className="text-xs leading-5 text-gray-600">
-                  PNG, JPG, GIF up to 10MB
-                </p>
-              </div>
-            </div>
+            
+            
           </div>
 
           <div className="mt-6 flex items-center justify-end gap-x-6">
@@ -122,7 +119,8 @@ const Productos = () => {
       </div>
       <Footer />
     </div>
-  );
-};
+    
+  )
+}
 
-export default Productos;
+export default Contacto

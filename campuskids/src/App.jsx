@@ -8,16 +8,20 @@ import Producto from './Componentes/Productos/Productos.jsx'
 import { Route, Routes } from "react-router"
 import 'tailwindcss/tailwind.css';
 import Footer from './Componentes/Footer/Footer.jsx'
+import ListaProductos from './Componentes/VerProductos/ListaProductos.jsx'
+import Contacto from './Componentes/Contacto/Contacto.jsx'
 
 function App() {  
 
   return (
-    <>
-      <Header/>
+    <>    
+    <Header/>
       <Routes>
         <Route path="/Productos" element={<Producto/>} />
-      </Routes>
-      <Footer/>
+        <Route path="/ListaProductos" element={<ListaProductos/>} />
+        <Route path="/Contacto" element={<Contacto/>} />
+      </Routes>      
+    {/* <Footer/>       */}
     </>
   )
 }
