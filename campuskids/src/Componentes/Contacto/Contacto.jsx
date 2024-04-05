@@ -1,12 +1,8 @@
 import React from 'react'
-import Footer from '../Footer/Footer'
-import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
-
-
 
 const Contacto = () => {
   return (
-    <div>
+    <div>      
       <div className="max-w-lg mx-auto border border-green-500 p-6 rounded-lg bg-gray-100">
         <form>
           <div className="space-y-2">
@@ -95,9 +91,7 @@ const Contacto = () => {
                 className="block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 defaultValue={""}
               />
-            </div>
-
-            
+            </div>            
             
           </div>
 

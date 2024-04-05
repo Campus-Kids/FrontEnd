@@ -3,6 +3,7 @@ import Footer from "../Footer/Footer";
 import React, { useEffect, useState } from "react";
 import { fetchObtenerCategorias } from "../../Servicio/Api";
 import { fetchRegistrarProducto } from "../../Servicio/Api";
+// import Modal from "../Modal/Modal";
 
 const Productos = () => {
   const [nombreProducto, setNombreProducto] = useState("");
@@ -12,9 +13,12 @@ const Productos = () => {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("");
   const [imagenes, setImagenes] = useState([]);
 
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+
   useEffect(() => {
     fetchObtenerCategorias()
-      .then((data) => {        
+      .then((data) => {
         setCategorias(data);
       })
       .catch((error) => {
@@ -30,13 +34,13 @@ const Productos = () => {
     setDescripcion(e.target.value);
   };
 
-  const handleCategoriaChange = (e) => {    
+  const handleCategoriaChange = (e) => {
     const selectedCategoriaId = parseInt(e.target.value, 10);
     console.log("ID de la categoría seleccionada:", selectedCategoriaId);
     const selectedCategoria = categorias.find(
       (categoria) => categoria.id === selectedCategoriaId
     );
-    console.log("Categoría seleccionada:", selectedCategoria);    
+    console.log("Categoría seleccionada:", selectedCategoria);
     setCategoriaSeleccionada(selectedCategoriaId);
   };
 
@@ -54,19 +58,36 @@ const Productos = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+    };    
+
     try {
-      const idCategoria = parseInt(categoriaSeleccionada, 10);
       const productoResponse = await fetchRegistrarProducto({
         nombre: nombreProducto,
         descripcion: descripcion,
-        idCategoria: categoriaSeleccionada, 
+        idCategoria: categoriaSeleccionada,
         imagenes: imagenes.map((imagen) => ({ url: imagen.url })),
       });
-      console.log("Respuesta del servidor:", productoResponse);
+
+      // Verificar si la respuesta contiene los datos del producto
+      if (productoResponse && productoResponse.nombre) {
+        // Producto registrado exitosamente
+        console.log("Producto registrado exitosamente:", productoResponse);
+        setModalMessage("Producto registrado exitosamente.");
+        setShowModal(true);
+      } else {
+        // La respuesta no contiene los datos del producto
+        console.error("Error al registrar el producto:", productoResponse);
+        setModalMessage("Error al registrar el producto.");
+        setShowModal(true);
+      }
     } catch (error) {
+      // Error al enviar la solicitud
       console.error("Error al enviar los datos al servidor:", error);
+      setModalMessage("Error al enviar los datos al servidor.");
+      setShowModal(true);
     }
-    
   };
 
   return (
@@ -114,7 +135,10 @@ const Productos = () => {
               >
                 <option value="">Seleccione una categoría</option>
                 {categorias.map((categoria) => (
-                  <option key={categoria.id} value={categoria.id} > {categoria.nombre}</option>
+                  <option key={categoria.id} value={categoria.id}>
+                    {" "}
+                    {categoria.nombre}
+                  </option>
                 ))}
               </select>
             </div>
@@ -128,7 +152,7 @@ const Productos = () => {
               Descripción
             </label>
             <div className="mt-2">
-              <textarea                
+              <textarea
                 id="descripcion"
                 name="descripcion"
                 value={descripcion}
@@ -157,7 +181,7 @@ const Productos = () => {
                     className="relative cursor-pointer rounded-md bg-white font-semibold text-[#385bbb] focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                   >
                     <span>Upload a file</span>
-                    <input                      
+                    <input
                       id="file-upload"
                       name="file-upload"
                       type="file"
@@ -192,10 +216,23 @@ const Productos = () => {
           </div>
         </form>
       </div>
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div className="fixed inset-0 bg-black opacity-50"></div>
+          <div className="bg-white rounded-lg p-8 z-10">
+            <p className="text-lg font-semibold">{modalMessage}</p>
+            <button
+              onClick={() => setShowModal(false)}
+              className="mt-4 px-4 py-2 bg-[#385bbb] hover:bg-indigo-500 rounded-md text-sm font-semibold text-white"
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      )}
       {/* <Footer/> */}
     </div>
   );
 };
 
 export default Productos;
-
