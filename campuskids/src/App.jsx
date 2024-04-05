@@ -10,18 +10,23 @@ import 'tailwindcss/tailwind.css';
 import Footer from './Componentes/Footer/Footer.jsx'
 import ListaProductos from './Componentes/VerProductos/ListaProductos.jsx'
 import Contacto from './Componentes/Contacto/Contacto.jsx'
+import Buscador from './Componentes/BuscarProductos.jsx'
+import BuscarProductos from './Componentes/BuscarProductos.jsx'
+// import Modal from './Componentes/Modal/Modal.jsx'
 
 function App() {  
 
   return (
     <>    
     <Header/>
+    {/* <BuscarProductos/> */}
+    {/* <Modal/> */}
       <Routes>
         <Route path="/Productos" element={<Producto/>} />
         <Route path="/ListaProductos" element={<ListaProductos/>} />
         <Route path="/Contacto" element={<Contacto/>} />
       </Routes>      
-    {/* <Footer/>       */}
+    <Footer/>      
     </>
   )
 }

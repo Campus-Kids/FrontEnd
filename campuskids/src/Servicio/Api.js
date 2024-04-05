@@ -59,3 +59,27 @@ export const fetchObtenerCategorias = async () => {
   
 };
 
+
+
+export const fetchBuscarProductos = async (texto) => {
+  const url = `${urlBase}/producto/buscar?texto=${encodeURIComponent(texto)}`;          
+
+  const response = await fetch(url, {
+      method: "GET",    
+      headers: {
+        "Content-Type": "application/json"          
+      }
+      
+    });
+
+    if (!response.ok) {
+      return response.status;
+    }
+    return await response.json();
+  
+};
+
+
+
+
+

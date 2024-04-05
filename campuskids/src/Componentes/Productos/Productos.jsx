@@ -36,13 +36,12 @@ const Productos = () => {
     const selectedCategoria = categorias.find(
       (categoria) => categoria.id === selectedCategoriaId
     );
-    console.log("Categoría seleccionada:", selectedCategoria);
-    // setCategoriaEnviar(selectedCategoria); //ELIMINAR ESTO PARA PRIBAR
+    console.log("Categoría seleccionada:", selectedCategoria);    
     setCategoriaSeleccionada(selectedCategoriaId);
   };
 
   const handleImagenesChange = (e) => {
-    // Aquí debes manejar la carga de imágenes y actualizar el estado de 'imagenes'
+    // Con esto manejo la carga de imágenes y actualizo el estado de imágenes
     const files = e.target.files;
     const selectedImages = [];
     for (let i = 0; i < files.length && i < 5; i++) {
@@ -60,7 +59,7 @@ const Productos = () => {
       const productoResponse = await fetchRegistrarProducto({
         nombre: nombreProducto,
         descripcion: descripcion,
-        idCategoria: categoriaSeleccionada, //categoriaEnviar.id, 
+        idCategoria: categoriaSeleccionada, 
         imagenes: imagenes.map((imagen) => ({ url: imagen.url })),
       });
       console.log("Respuesta del servidor:", productoResponse);
@@ -193,7 +192,7 @@ const Productos = () => {
           </div>
         </form>
       </div>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 };

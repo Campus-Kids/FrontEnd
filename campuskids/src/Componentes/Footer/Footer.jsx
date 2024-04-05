@@ -73,7 +73,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* <!--Copyright section--> */}
+        {/* Copyright section */}
         <div className="bg-green-300 p-4 text-center text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200">
           © 2024 Copyright:
           <a
